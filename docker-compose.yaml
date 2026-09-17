@@ -1,0 +1,18 @@
+services:
+  dog-bark-detector:
+    build: .
+    container_name: dog-bark-detector
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Amsterdam"
+      RTSP_URL: "rtsp://user:pass@camera-ip:554/stream1"
+      MQTT_HOST: "homeassistant.local"
+      MQTT_PORT: "1883"
+      MQTT_TOPIC: "dogbark/detected"
+      MQTT_USER: ""
+      MQTT_PASS: ""
+      THRESHOLD: "0.3"
+      COOLDOWN_SEC: "5"
+      SOUND_KEYWORDS: "bark,yip,howl,bow-wow,growling,whimper"
+    volumes:
+      - ./models:/app/models
