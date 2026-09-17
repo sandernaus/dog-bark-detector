@@ -1,4 +1,4 @@
-FROM python:3.14-slim
+FROM python:3.11-slim
 
 # ffmpeg for pulling audio out of the RTSP stream, tzdata so TZ env var works
 RUN apt-get update && apt-get install -y --no-install-recommends \
