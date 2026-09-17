@@ -56,7 +56,8 @@ cached in the `models/` volume, so restarts don't re-download them.
   swap the ffmpeg input for the mic device.
 - CPU usage is minimal since inference only runs once per second on a
   1-second window, not continuously.
-- `tflite-runtime` wheels are architecture-specific; the slim Python
-  image + pip install should cover x86_64 and most ARM64 (Pi 4/5). If
-  pip can't find a wheel for your specific board, swap it for
-  `ai-edge-litert` (its successor package) in requirements.txt.
+- Uses **LiteRT** (`ai-edge-litert`, Google's successor to `tflite-runtime`) on
+  **Python 3.14**. Prebuilt wheels cover x86_64 and aarch64 Linux (Pi 4/5),
+  macOS, and Windows. No wheel exists yet for 32-bit ARM (Pi 3 and earlier) —
+  if you're on one of those, stay on `tflite-runtime` with an older Python
+  base image instead.
