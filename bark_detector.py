@@ -27,7 +27,7 @@ import urllib.request
 
 import numpy as np
 import paho.mqtt.client as mqtt
-import ai_edge_litert.interpreter as tflite
+import tflite_runtime.interpreter as tflite
 
 logging.basicConfig(
     level=logging.INFO,
